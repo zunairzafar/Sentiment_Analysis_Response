@@ -136,16 +136,6 @@ except Exception as e:
 # -----------------------------
 # UI: Input + Run
 # -----------------------------
-text = st.text_area(
-    "Feedback text",
-    value="very very good product.",
-    height=120,
-    placeholder="Type feedback here...",
-)
-
-col1, col2 = st.columns([1, 1])
-run_btn = col1.button("Analyze & Respond", type="primary", use_container_width=True)
-clear_btn = col2.button("Clear", use_container_width=True)
 # --- Text input (bind to session_state) ---
 if "feedback_text" not in st.session_state:
     st.session_state["feedback_text"] = ""
@@ -167,10 +157,7 @@ if clear_btn:
     st.session_state.pop("last_result", None)
     st.session_state.pop("last_label", None)
     st.rerun()
-if clear_btn:
-    st.session_state.pop("last_result", None)
-    st.session_state.pop("last_label", None)
-    st.rerun()
+
 
 if run_btn:
     if not text.strip():
