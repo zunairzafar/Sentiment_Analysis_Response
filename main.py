@@ -152,19 +152,13 @@ col1, col2 = st.columns([1, 1])
 run_btn = col1.button("Analyze & Respond", type="primary", use_container_width=True)
 clear_btn = col2.button("Clear", use_container_width=True)
 
-if "do_clear" not in st.session_state:
-    st.session_state["do_clear"] = False
+col1, col2 = st.columns([1, 1])
+run_btn = col1.button("Analyze & Respond", type="primary", use_container_width=True)
+clear_btn = col2.button("Clear", use_container_width=True)
 
-if st.session_state["do_clear"]:
-    st.session_state["feedback_text"] = ""
+if clear_btn:
     st.session_state.pop("last_result", None)
     st.session_state.pop("last_label", None)
-    st.session_state["do_clear"] = False
-
-text = st.text_area("Feedback text", key="feedback_text")
-
-if st.button("Clear"):
-    st.session_state["do_clear"] = True
     st.rerun()
 
 
