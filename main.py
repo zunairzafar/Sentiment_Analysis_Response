@@ -71,9 +71,6 @@ else:
 st.sidebar.caption(f"Selected: `{selected_repo_id}`")
 
 
-# -----------------------------
-# Your base code (same logic, but model is dynamic)
-# -----------------------------
 class Feedback(BaseModel):
     sentiment: Literal["positive", "negative", "neutral"] = Field(
         description="The sentiment of the text"
@@ -136,21 +133,12 @@ except Exception as e:
 # -----------------------------
 # UI: Input + Run
 # -----------------------------
-# --- Text input (bind to session_state) ---
-if "feedback_text" not in st.session_state:
-    st.session_state["feedback_text"] = ""
-
 text = st.text_area(
     "Feedback text",
-    key="feedback_text",          # binds value to st.session_state["feedback_text"]
+    value="very very good product.",
     height=120,
     placeholder="Type feedback here...",
 )
-
-# --- Buttons ---
-col1, col2 = st.columns([1, 1])
-run_btn = col1.button("Analyze & Respond", type="primary", use_container_width=True)
-clear_btn = col2.button("Clear", use_container_width=True)
 
 col1, col2 = st.columns([1, 1])
 run_btn = col1.button("Analyze & Respond", type="primary", use_container_width=True)
@@ -160,7 +148,6 @@ if clear_btn:
     st.session_state.pop("last_result", None)
     st.session_state.pop("last_label", None)
     st.rerun()
-
 
 if run_btn:
     if not text.strip():
