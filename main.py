@@ -69,7 +69,7 @@ chain = (
 # Streamlit UI wrapper
 # -----------------------------
 st.set_page_config(page_title="Sentiment Feedback Assistant", page_icon="💬", layout="centered")
-st.title("💬 Sentiment Feedback Assistant")
+st.title("💬 Sentiment Feedback Assistant by Zunair Zafar")
 st.caption("Enter feedback text → classify sentiment → generate a response")
 
 # Sidebar info / env check
