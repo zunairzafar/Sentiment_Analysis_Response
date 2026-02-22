@@ -14,7 +14,7 @@ from pydantic import BaseModel, Field
 # Your base code (kept intact)
 # -----------------------------
 load_dotenv()  # Load environment variables from .env file
-os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
+os.environ["HF_TOKEN"] = st.secrets["HF_TOKEN"]
 
 llm1 = HuggingFaceEndpoint(
     repo_id="meta-llama/Llama-3.1-8B-Instruct",
