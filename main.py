@@ -48,7 +48,7 @@ st.sidebar.subheader("Model Selection")
 
 ALLOWED_MODELS = [
     "meta-llama/Llama-3.1-8B-Instruct",
-    "mistralai/Mistral-7B-Instruct-v0.3",
+    "openai/gpt-oss-120b",
     "Qwen/Qwen2.5-7B-Instruct",
 ]
 
